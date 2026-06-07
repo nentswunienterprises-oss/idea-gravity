@@ -43,3 +43,61 @@ window.addEventListener(
   },
   { passive: true },
 );
+
+const briefForm = document.querySelector("[data-brief-form]");
+
+if (briefForm instanceof HTMLFormElement) {
+  const statusElement = briefForm.querySelector("[data-form-status]");
+
+  briefForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = briefForm.querySelector("button[type='submit']");
+    const formData = new FormData(briefForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    payload.desired_actions = formData.getAll("desired_actions");
+    payload.channels = formData.getAll("channels");
+
+    if (statusElement) {
+      statusElement.textContent = "Submitting your Gravity Brief...";
+      statusElement.className = "form-status is-visible";
+    }
+
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+    }
+
+    try {
+      const response = await fetch("/api/gravity-brief", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || "Could not submit the brief.");
+      }
+
+      briefForm.reset();
+
+      if (statusElement) {
+        statusElement.textContent = "Brief received. We will review the gravity and respond with the next step.";
+        statusElement.className = "form-status is-visible is-success";
+      }
+    } catch (error) {
+      if (statusElement) {
+        statusElement.textContent = error instanceof Error ? error.message : "Could not submit the brief.";
+        statusElement.className = "form-status is-visible is-error";
+      }
+    } finally {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Gravity Brief";
+      }
+    }
+  });
+}

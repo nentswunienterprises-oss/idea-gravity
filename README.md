@@ -52,6 +52,46 @@ $env:VERCEL_TOKEN="your_vercel_token"
 npx vercel --prod --yes --token $env:VERCEL_TOKEN
 ```
 
+## Gravity Brief Database
+
+The `Submit Your Gravity Brief` form posts to `api/gravity-brief.js` and stores submissions in Supabase.
+
+Create this table in Supabase SQL Editor:
+
+```sql
+create table if not exists public.gravity_briefs (
+  id uuid primary key default gen_random_uuid(),
+  organization text not null,
+  contact_name text not null,
+  email text not null,
+  phone text not null,
+  goal text not null,
+  audience text not null,
+  desired_actions text[] not null default '{}',
+  channels text[] not null default '{}',
+  support_type text not null,
+  preferred_layer text not null,
+  deadline text,
+  existing_materials text,
+  budget_range text not null,
+  status text not null default 'new',
+  created_at timestamptz not null default now()
+);
+```
+
+Then add these Vercel environment variables:
+
+```powershell
+npx vercel env add SUPABASE_URL production
+npx vercel env add SUPABASE_SERVICE_ROLE_KEY production
+```
+
+Redeploy after adding env vars:
+
+```powershell
+npx vercel --prod --yes
+```
+
 You can also open `index.html` directly in a browser, or serve the directory without npm:
 
 ```powershell
