@@ -776,7 +776,7 @@ h4 {
 
 .layer-card li::before {
   color: var(--gold-bright);
-  content: "— ";
+  content: "\2014 ";
 }
 
 .layer-card strong {
@@ -786,6 +786,76 @@ h4 {
   font-size: clamp(1.3rem, 1.8vw, 2rem);
   font-weight: 500;
   line-height: 1.12;
+}
+
+.selection-standard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1fr);
+  gap: clamp(42px, 7vw, 110px);
+  align-items: end;
+  width: min(1440px, calc(100% - clamp(0px, 2vw, 28px)));
+  margin: clamp(18px, 3vw, 42px) auto 0;
+  padding: clamp(54px, 7vw, 110px) 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.selection-standard h2,
+.process-heading h2 {
+  margin-top: 14px;
+  font-size: clamp(2.7rem, 5.4vw, 6.6rem);
+}
+
+.selection-standard > p {
+  color: rgba(246, 241, 232, 0.72);
+  font-size: clamp(1.1rem, 1.55vw, 1.55rem);
+}
+
+.diagnostic-process {
+  width: min(1440px, calc(100% - clamp(0px, 2vw, 28px)));
+  margin: clamp(18px, 3vw, 42px) auto 0;
+  padding: clamp(54px, 7vw, 110px);
+}
+
+.process-heading {
+  max-width: 1080px;
+  margin-bottom: 42px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-soft);
+  border-left: 1px solid var(--line-soft);
+}
+
+.process-grid article {
+  min-height: 260px;
+  padding: 26px;
+  border-right: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.process-grid span {
+  color: var(--gold-bright);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+.process-grid h3 {
+  margin-top: 48px;
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.process-grid p {
+  margin-top: 14px;
+  color: rgba(246, 241, 232, 0.66);
 }
 
 .offer-standard {
@@ -940,6 +1010,12 @@ h4 {
 .submit-button:disabled {
   cursor: wait;
   opacity: 0.64;
+}
+
+.form-note {
+  margin-top: 2px;
+  color: rgba(246, 241, 232, 0.58);
+  font-size: 0.88rem;
 }
 
 .form-status {
@@ -1325,6 +1401,7 @@ h4 {
   .pathway-grid,
   .brief-section,
   .offer-cta,
+  .selection-standard,
   .principle-band,
   .manifesto-grid {
     grid-template-columns: 1fr;
@@ -1344,6 +1421,10 @@ h4 {
 
   .article-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .layer-grid {
@@ -1451,6 +1532,7 @@ h4 {
   .pathway-footer,
   .form-row,
   .check-grid,
+  .process-grid,
   .article-list {
     grid-template-columns: 1fr;
   }
