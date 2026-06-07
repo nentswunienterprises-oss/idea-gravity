@@ -5,6 +5,7 @@ A static public website for Idea Gravity, built from `MANIFESTO.md`, `THE IDEA G
 ## Files
 
 - `index.html` — page content, doctrine panels, pathway diagram, and constitution archive
+- `offer.html` — Movement Communication offer architecture and Gravity Brief form
 - `styles.css` — brand-system plates, responsive layout, orbit animation, and pathway composition
 - `script.js` — mobile navigation, reveal effects, cursor glow
 - `assets/favicon.svg` — browser icon
