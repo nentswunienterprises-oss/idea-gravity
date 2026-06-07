@@ -32,15 +32,16 @@ npm run preview
 
 The production site is live at:
 
-- `https://idea-gravity.vercel.app`
+- `https://ideagravity.co.za`
+- `https://www.ideagravity.co.za`
 
-This directory is linked to the Vercel project `idea-gravity`.
+This directory is linked to the Vercel project `ideagravity`.
 
 Login once, then deploy production updates:
 
 ```powershell
 npx vercel login
-npx vercel link --project idea-gravity --yes
+npx vercel link --project ideagravity --yes
 npx vercel --prod --yes
 ```
 
