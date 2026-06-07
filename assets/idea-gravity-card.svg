@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Idea Gravity — Where meaning becomes orbit">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d8a033" stop-opacity=".26"/>
+      <stop offset="60%" stop-color="#071428" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#02050a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#c9861e"/>
+      <stop offset="1" stop-color="#ffc75a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#02050a"/>
+  <rect x="34" y="34" width="1132" height="562" fill="none" stroke="#d8a033" stroke-opacity=".46" stroke-width="2"/>
+  <circle cx="362" cy="315" r="210" fill="url(#glow)"/>
+  <circle cx="362" cy="315" r="155" fill="none" stroke="#d8a033" stroke-width="4"/>
+  <circle cx="362" cy="315" r="78" fill="none" stroke="#ffc75a" stroke-width="4"/>
+  <ellipse cx="421" cy="280" rx="110" ry="58" fill="none" stroke="#ffc75a" stroke-width="4" transform="rotate(-34 421 280)"/>
+  <circle cx="362" cy="315" r="34" fill="url(#gold)"/>
+  <circle cx="506" cy="244" r="17" fill="url(#gold)"/>
+  <circle cx="456" cy="387" r="14" fill="url(#gold)"/>
+  <line x1="610" y1="190" x2="610" y2="440" stroke="#d8a033" stroke-width="2"/>
+  <text x="665" y="300" fill="#f5f2ec" font-family="Georgia, 'Times New Roman', serif" font-size="96">Idea</text>
+  <text x="665" y="394" fill="#f5f2ec" font-family="Georgia, 'Times New Roman', serif" font-size="96">Gravity</text>
+  <text x="670" y="442" fill="#ffc75a" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="14">WHERE MEANING BECOMES ORBIT</text>
+</svg>
