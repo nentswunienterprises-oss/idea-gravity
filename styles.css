@@ -537,10 +537,12 @@ h4 {
 
 .doctrine-poster {
   display: grid;
+  grid-template-rows: 1fr auto;
   min-height: 1500px;
   margin-top: clamp(18px, 3vw, 42px);
   padding: clamp(70px, 7vw, 130px);
-  place-items: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .poster-corner {
@@ -566,6 +568,7 @@ h4 {
   display: grid;
   justify-items: center;
   max-width: 900px;
+  padding-top: clamp(120px, 9vw, 190px);
   text-align: center;
 }
 
@@ -585,9 +588,15 @@ h4 {
   text-transform: uppercase;
 }
 
+.poster-center p + p {
+  margin-top: 8px;
+}
+
 .poster-lockup {
-  position: absolute;
-  bottom: clamp(90px, 8vw, 150px);
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  margin-top: clamp(80px, 8vw, 150px);
 }
 
 .poster-lockup .brand-divider {
