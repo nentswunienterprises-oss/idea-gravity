@@ -74,12 +74,21 @@ create table if not exists public.gravity_briefs (
   channels text[] not null default '{}',
   support_type text not null,
   preferred_layer text not null,
+  live_date text,
   deadline text,
+  duration text,
   existing_materials text,
   budget_range text not null,
   status text not null default 'new',
   created_at timestamptz not null default now()
 );
+```
+
+If your table already exists, add these columns in the Supabase SQL editor:
+
+```sql
+alter table public.gravity_briefs add column if not exists live_date text;
+alter table public.gravity_briefs add column if not exists duration text;
 ```
 
 Then add these Vercel environment variables:

@@ -43,6 +43,8 @@ export default async function handler(request, response) {
 
   const body = typeof request.body === "string" ? JSON.parse(request.body || "{}") : request.body || {};
 
+  const liveDate = normalizeText(body.live_date || body.deadline);
+
   const brief = {
     organization: normalizeText(body.organization),
     contact_name: normalizeText(body.contact_name),
@@ -54,8 +56,7 @@ export default async function handler(request, response) {
     channels: normalizeArray(body.channels),
     support_type: normalizeText(body.support_type),
     preferred_layer: normalizeText(body.preferred_layer),
-    // Accept either `live_date` (new) or `deadline` (legacy)
-    live_date: normalizeText(body.live_date || body.deadline),
+    live_date: liveDate,
     duration: normalizeText(body.duration),
     existing_materials: normalizeText(body.existing_materials),
     budget_range: normalizeText(body.budget_range),
