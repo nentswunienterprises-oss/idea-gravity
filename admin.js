@@ -212,7 +212,6 @@ function renderBriefs() {
                   .join("")}
               </select>
             </label>
-            <button class="admin-button" type="button" data-copy-reference>Copy reference</button>
             <button class="admin-button" type="button" data-copy-contact>Copy contact</button>
           </div>
         </article>
@@ -311,7 +310,7 @@ briefList?.addEventListener("change", async (event) => {
 briefList?.addEventListener("click", async (event) => {
   const target = event.target;
 
-  if (!(target instanceof HTMLButtonElement)) {
+  if (!(target instanceof HTMLButtonElement) || !target.matches("[data-copy-contact]")) {
     return;
   }
 
@@ -323,24 +322,11 @@ briefList?.addEventListener("click", async (event) => {
     return;
   }
 
-  if (target.matches("[data-copy-contact]")) {
-    await navigator.clipboard.writeText(`${brief.contact_name}\n${brief.email}\n${brief.phone}`);
-    target.textContent = "Copied";
-    setTimeout(() => {
-      target.textContent = "Copy contact";
-    }, 1200);
-    return;
-  }
-
-  if (target.matches("[data-copy-reference]")) {
-    const referenceCode = `Reference: ${brief.id.slice(0, 8).toUpperCase()}`;
-    await navigator.clipboard.writeText(referenceCode);
-    target.textContent = "Copied";
-    setTimeout(() => {
-      target.textContent = "Copy reference";
-    }, 1200);
-    return;
-  }
+  await navigator.clipboard.writeText(`${brief.contact_name}\n${brief.email}\n${brief.phone}`);
+  target.textContent = "Copied";
+  setTimeout(() => {
+    target.textContent = "Copy contact";
+  }, 1200);
 });
 
 searchInput?.addEventListener("input", renderBriefs);
