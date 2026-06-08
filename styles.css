@@ -426,7 +426,13 @@ h4 {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
   gap: clamp(42px, 6vw, 100px);
-  align-items: start;
+  align-items: center;
+  min-height: clamp(560px, 64vh, 790px);
+  padding-top: clamp(70px, 8vw, 120px);
+}
+
+.offer-hero-grid h1 {
+  margin-top: 18px;
   max-width: 1000px;
 }
 
