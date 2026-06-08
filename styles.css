@@ -154,6 +154,9 @@ h2 {
   font-family: var(--serif);
   font-weight: 500;
   letter-spacing: -0.055em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  hyphens: auto;
   text-wrap: balance;
 }
 
@@ -241,6 +244,7 @@ h4 {
 .poster-lockup,
 .footer-brand-card {
   gap: 28px;
+  min-width: 0;
 }
 
 .brand-divider {
@@ -252,6 +256,7 @@ h4 {
 .brand-wordmark {
   display: grid;
   gap: 8px;
+  min-width: 0;
 }
 
 .brand-wordmark strong {
@@ -343,6 +348,8 @@ h4 {
 .site-nav {
   justify-content: space-between;
   gap: clamp(22px, 4vw, 78px);
+  flex-wrap: wrap;
+  row-gap: 12px;
 }
 
 .site-nav a,
@@ -382,6 +389,10 @@ h4 {
   padding: clamp(44px, 5vw, 72px) clamp(44px, 7vw, 138px);
 }
 
+.admin-hero {
+  padding: clamp(44px, 5vw, 72px) clamp(44px, 7vw, 138px);
+}
+
 .hero-grid {
   position: relative;
   z-index: 1;
@@ -401,6 +412,11 @@ h4 {
 
 .hero-copy .text-link {
   margin-top: clamp(36px, 5vw, 70px);
+}
+
+.hero-copy,
+.offer-hero-copy {
+  min-width: 0;
 }
 
 .offer-hero-grid {
@@ -1353,6 +1369,273 @@ h4 {
   letter-spacing: -0.055em;
 }
 
+.admin-nav button {
+  border: 0;
+  color: rgba(246, 241, 232, 0.72);
+  background: transparent;
+  font: inherit;
+  font-size: clamp(0.72rem, 0.9vw, 0.96rem);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-nav button:hover,
+.admin-nav button:focus-visible {
+  color: var(--white);
+  outline: none;
+}
+
+.admin-heading {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  padding-top: clamp(90px, 11vw, 170px);
+}
+
+.admin-heading h1 {
+  margin-top: 16px;
+  max-width: 1080px;
+  font-size: clamp(3.6rem, 7vw, 8rem);
+}
+
+.admin-heading p:last-child {
+  max-width: 760px;
+  margin-top: 24px;
+  color: rgba(246, 241, 232, 0.76);
+  font-size: clamp(1.08rem, 1.55vw, 1.48rem);
+}
+
+.admin-login {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.7fr);
+  gap: clamp(42px, 6vw, 90px);
+  align-items: end;
+  width: min(1440px, calc(100% - clamp(0px, 2vw, 28px)));
+  margin: clamp(18px, 3vw, 42px) auto 0;
+  padding: clamp(46px, 6vw, 96px);
+}
+
+.admin-login h2,
+.admin-toolbar h2 {
+  margin-top: 14px;
+  font-size: clamp(2.8rem, 5.6vw, 6.8rem);
+}
+
+.admin-login p:last-child {
+  max-width: 690px;
+  margin-top: 22px;
+  color: rgba(246, 241, 232, 0.72);
+}
+
+.admin-login-form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.admin-dashboard {
+  width: min(1440px, calc(100% - clamp(0px, 2vw, 28px)));
+  margin: clamp(18px, 3vw, 42px) auto 0;
+  padding: clamp(54px, 7vw, 110px) 0;
+}
+
+.admin-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(460px, 1fr);
+  gap: clamp(34px, 5vw, 80px);
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.admin-actions {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(170px, 0.6fr) auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.admin-actions label,
+.admin-login-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-actions span,
+.admin-login-form span,
+.brief-card-actions span {
+  color: rgba(246, 241, 232, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.admin-actions input,
+.admin-actions select,
+.admin-login-form input,
+.brief-card-actions select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(214, 154, 45, 0.3);
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.26);
+  font: inherit;
+  padding: 0 14px;
+}
+
+.admin-actions select option,
+.brief-card-actions select option {
+  color: var(--black);
+}
+
+.admin-button {
+  min-height: 48px;
+  border: 1px solid var(--line-soft);
+  color: var(--gold-bright);
+  background: rgba(0, 0, 0, 0.22);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin: 28px 0;
+}
+
+.admin-stats article,
+.admin-empty {
+  border: 1px solid var(--line-soft);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.admin-stats article {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.admin-stats span {
+  color: rgba(246, 241, 232, 0.62);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.admin-stats strong {
+  color: var(--gold-bright);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.admin-empty {
+  padding: 28px;
+  color: rgba(246, 241, 232, 0.66);
+}
+
+.brief-list {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-brief-card {
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--line-soft);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(214, 154, 45, 0.08), transparent 14rem),
+    rgba(0, 0, 0, 0.18);
+}
+
+.brief-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.status-pill {
+  display: inline-flex;
+  padding: 6px 10px;
+  border: 1px solid var(--line-soft);
+  color: var(--gold-bright);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brief-card-top h3 {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 3.6rem);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  text-transform: none;
+}
+
+.brief-card-top p,
+.brief-card-top time {
+  margin-top: 10px;
+  color: rgba(246, 241, 232, 0.64);
+}
+
+.brief-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.brief-card-grid div,
+.brief-materials {
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.brief-card-grid h4,
+.brief-materials h4 {
+  color: var(--gold-bright);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brief-card-grid p,
+.brief-materials p {
+  margin-top: 8px;
+  color: rgba(246, 241, 232, 0.72);
+}
+
+.brief-materials {
+  margin-top: 20px;
+}
+
+.brief-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: end;
+  margin-top: 24px;
+}
+
+.brief-card-actions label {
+  display: grid;
+  min-width: 210px;
+  gap: 8px;
+}
+
 .reveal {
   transform: translateY(28px);
   opacity: 0;
@@ -1400,6 +1683,8 @@ h4 {
   .offer-hero-grid,
   .pathway-grid,
   .brief-section,
+  .admin-login,
+  .admin-toolbar,
   .offer-cta,
   .selection-standard,
   .principle-band,
@@ -1427,6 +1712,14 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .admin-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .brief-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .layer-grid {
     grid-template-columns: 1fr;
   }
@@ -1447,15 +1740,17 @@ h4 {
 
   .hero-plate,
   .offer-hero,
+  .admin-hero,
   .doctrine-poster,
   .pathway-plate {
-    padding: 26px;
+    padding: clamp(22px, 5vw, 28px);
   }
 
   .plate-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px 12px;
+    align-items: start;
   }
 
   .brand-lockup,
@@ -1466,6 +1761,16 @@ h4 {
 
   .brand-divider {
     height: 58px;
+  }
+
+  .brand-wordmark strong {
+    font-size: clamp(0.86rem, 3.2vw, 1rem);
+    letter-spacing: 0.14em;
+  }
+
+  .brand-wordmark em {
+    font-size: clamp(0.56rem, 2.2vw, 0.68rem);
+    letter-spacing: 0.22em;
   }
 
   .orbit-mark-small {
@@ -1480,16 +1785,19 @@ h4 {
 
   .site-nav {
     position: absolute;
-    top: 100px;
-    right: 26px;
-    left: 26px;
+    top: calc(100% + 14px);
+    right: 0;
+    left: 0;
     z-index: 10;
     display: none;
     flex-direction: column;
     align-items: stretch;
-    padding: 14px;
+    gap: 0;
+    padding: 16px;
     border: 1px solid var(--line-soft);
+    border-radius: 24px;
     background: rgba(2, 5, 10, 0.96);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
   }
 
   .site-nav.is-open {
@@ -1497,26 +1805,44 @@ h4 {
   }
 
   .site-nav a {
-    padding: 10px;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line-soft);
   }
 
-  .hero-grid {
-    min-height: auto;
-    padding-top: 70px;
+  .site-nav a:last-child {
+    border-bottom: 0;
   }
 
+  .hero-grid,
   .offer-hero-grid {
     min-height: auto;
-    padding-top: 70px;
+    gap: 28px;
+    padding-top: 44px;
+  }
+
+  .admin-heading {
+    padding-top: 44px;
   }
 
   h1 {
-    font-size: clamp(3.5rem, 16vw, 6rem);
+    font-size: clamp(2.55rem, 10.8vw, 4.75rem);
+    line-height: 0.98;
   }
 
   h2,
   .poster-center h2 {
-    font-size: clamp(3.2rem, 14vw, 5.8rem);
+    font-size: clamp(2.35rem, 9vw, 4.8rem);
+    line-height: 0.98;
+  }
+
+  .hero-copy p,
+  .offer-hero-copy,
+  .principle-band > p,
+  .manifesto-copy,
+  .selection-standard > p,
+  .offer-heading p:last-child,
+  .brief-copy p:last-child {
+    font-size: clamp(1rem, 3.6vw, 1.14rem);
   }
 
   .star-field {
@@ -1524,17 +1850,24 @@ h4 {
   }
 
   .gravity-system-hero {
-    width: 76vw;
-    min-width: 250px;
+    width: min(82vw, 360px);
+    min-width: 0;
   }
 
   .plate-footer,
   .pathway-footer,
   .form-row,
+  .admin-actions,
+  .admin-stats,
+  .brief-card-grid,
   .check-grid,
   .process-grid,
   .article-list {
     grid-template-columns: 1fr;
+  }
+
+  .brief-card-top {
+    display: grid;
   }
 
   .brief-copy {
@@ -1547,7 +1880,7 @@ h4 {
   }
 
   .doctrine-poster {
-    min-height: 980px;
+    min-height: auto;
   }
 
   .poster-corner,
@@ -1558,12 +1891,13 @@ h4 {
   }
 
   .poster-nav {
-    justify-self: end;
-    text-align: right;
+    justify-self: start;
+    text-align: left;
   }
 
   .poster-center {
-    margin: 70px 0;
+    margin: 52px 0;
+    padding-top: 40px;
   }
 
   .poster-lockup {
@@ -1601,6 +1935,93 @@ h4 {
   .footer-brand-card {
     flex-wrap: wrap;
     justify-content: flex-start;
+    gap: 12px;
+    padding: 22px;
+  }
+
+  .stacked-words {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-canvas {
+    padding: 8px;
+  }
+
+  .hero-plate,
+  .offer-hero,
+  .doctrine-poster,
+  .pathway-plate,
+  .brief-section,
+  .offer-cta {
+    padding: 20px;
+  }
+
+  .plate-header {
+    gap: 14px 10px;
+  }
+
+  .brand-lockup {
+    gap: 10px;
+  }
+
+  .brand-divider {
+    height: 46px;
+  }
+
+  .orbit-mark-small {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-wordmark strong {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-toggle {
+    padding: 10px 11px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-grid,
+  .offer-hero-grid {
+    gap: 24px;
+    padding-top: 34px;
+  }
+
+  .offer-hero-grid h1 {
+    max-width: 9ch;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 3.15rem);
+    letter-spacing: -0.04em;
+  }
+
+  h2,
+  .poster-center h2 {
+    font-size: clamp(1.95rem, 9.8vw, 3.35rem);
+  }
+
+  .short-rule {
+    margin: 24px 0;
+  }
+
+  .text-link {
+    gap: 12px;
+  }
+
+  .poster-center p {
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+  }
+
+  .pathway-map figcaption {
+    gap: 10px;
+    font-size: 0.9rem;
   }
 }
 
@@ -1617,6 +2038,15 @@ h4 {
   .principle-band > p,
   .manifesto-copy {
     font-size: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.85rem, 10.5vw, 2.8rem);
+  }
+
+  h2,
+  .poster-center h2 {
+    font-size: clamp(1.8rem, 9.4vw, 3rem);
   }
 
   .article-list article {

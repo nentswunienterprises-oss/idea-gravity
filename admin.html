@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard &mdash; Idea Gravity</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#02050a" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <main id="main" class="site-canvas">
+      <section class="admin-hero plate reveal" aria-labelledby="admin-title">
+        <header class="plate-header">
+          <a class="brand-lockup" href="index.html" aria-label="Idea Gravity home">
+            <span class="brand-orbit orbit-mark orbit-mark-small" aria-hidden="true">
+              <i></i>
+            </span>
+            <span class="brand-divider" aria-hidden="true"></span>
+            <span class="brand-wordmark">
+              <strong>Idea Gravity</strong>
+              <em>Admin Dashboard</em>
+            </span>
+          </a>
+          <nav class="site-nav admin-nav" aria-label="Admin navigation">
+            <a href="index.html">Home</a>
+            <a href="offer.html">Offer</a>
+            <button type="button" data-admin-logout>Logout</button>
+          </nav>
+          <span class="header-rule" aria-hidden="true"></span>
+        </header>
+
+        <div class="admin-heading">
+          <p class="eyebrow">Gravity Briefs</p>
+          <h1 id="admin-title">Review the field of incoming gravity.</h1>
+          <p>Read submissions, assess readiness, and move each brief through the operating system.</p>
+        </div>
+      </section>
+
+      <section class="admin-login plate reveal" data-admin-login aria-labelledby="login-title">
+        <div>
+          <p class="eyebrow">Restricted Access</p>
+          <h2 id="login-title">Enter the admin password.</h2>
+          <p>Access is limited to Idea Gravity operators. The service-role key remains server-side.</p>
+        </div>
+        <form class="admin-login-form" data-admin-login-form>
+          <div class="form-status" role="status" aria-live="polite" data-admin-status></div>
+          <label>
+            <span>Admin password</span>
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <button class="submit-button" type="submit">Enter Dashboard</button>
+        </form>
+      </section>
+
+      <section class="admin-dashboard reveal" data-admin-dashboard hidden>
+        <div class="admin-toolbar">
+          <div>
+            <p class="eyebrow">Brief Registry</p>
+            <h2>Submissions</h2>
+          </div>
+          <div class="admin-actions">
+            <label>
+              <span>Search</span>
+              <input data-admin-search placeholder="Organization, name, email..." />
+            </label>
+            <label>
+              <span>Status</span>
+              <select data-admin-filter>
+                <option value="all">All</option>
+                <option value="new">New</option>
+                <option value="reviewing">Reviewing</option>
+                <option value="quoted">Quoted</option>
+                <option value="accepted">Accepted</option>
+                <option value="archived">Archived</option>
+              </select>
+            </label>
+            <button class="admin-button" type="button" data-admin-refresh>Refresh</button>
+          </div>
+        </div>
+
+        <div class="admin-stats" data-admin-stats></div>
+        <div class="admin-empty" data-admin-empty hidden>No briefs found in this orbit.</div>
+        <div class="brief-list" data-brief-list></div>
+      </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>

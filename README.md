@@ -4,10 +4,12 @@ A static public website for Idea Gravity, built from `MANIFESTO.md`, `THE IDEA G
 
 ## Files
 
-- `index.html` — page content, doctrine panels, pathway diagram, and constitution archive
-- `offer.html` — Movement Communication offer page and Gravity Brief form
-- `styles.css` — brand-system plates, responsive layout, orbit animation, and pathway composition
-- `script.js` — mobile navigation, reveal effects, cursor glow
+- `index.html` - page content, doctrine panels, pathway diagram, and constitution archive
+- `offer.html` - Movement Communication offer page and Gravity Brief form
+- `admin.html` - password-protected Gravity Brief dashboard
+- `styles.css` - brand-system plates, responsive layout, orbit animation, and pathway composition
+- `script.js` - mobile navigation, reveal effects, cursor glow
+- `admin.js` - admin dashboard login, filtering, and status updates
 - `assets/favicon.svg` — browser icon
 - `assets/idea-gravity-card.svg` — Open Graph/social preview image
 
@@ -85,6 +87,7 @@ Then add these Vercel environment variables:
 ```powershell
 npx vercel env add SUPABASE_URL production
 npx vercel env add SUPABASE_SERVICE_ROLE_KEY production
+npx vercel env add ADMIN_PASSWORD production
 ```
 
 Redeploy after adding env vars:
