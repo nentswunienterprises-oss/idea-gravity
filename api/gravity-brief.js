@@ -8,6 +8,7 @@ const requiredFields = [
   "support_type",
   "preferred_layer",
   "budget_range",
+  "live_date",
 ];
 
 function normalizeText(value) {
@@ -53,7 +54,9 @@ export default async function handler(request, response) {
     channels: normalizeArray(body.channels),
     support_type: normalizeText(body.support_type),
     preferred_layer: normalizeText(body.preferred_layer),
-    deadline: normalizeText(body.deadline),
+    // Accept either `live_date` (new) or `deadline` (legacy)
+    live_date: normalizeText(body.live_date || body.deadline),
+    duration: normalizeText(body.duration),
     existing_materials: normalizeText(body.existing_materials),
     budget_range: normalizeText(body.budget_range),
     status: "new",
