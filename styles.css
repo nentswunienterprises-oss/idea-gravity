@@ -424,10 +424,20 @@ h4 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-  gap: clamp(42px, 6vw, 100px);
+  grid-template-columns: minmax(0, 1.28fr) minmax(300px, 30rem);
+  gap: clamp(42px, 5vw, 88px);
   align-items: start;
-  max-width: 1000px;
+  max-width: 1380px;
+}
+
+.offer-hero-grid > :first-child {
+  min-width: 0;
+}
+
+.offer-hero-grid h1 {
+  max-width: 8.5ch;
+  font-size: clamp(3.7rem, 6.5vw, 7.5rem);
+  text-wrap: pretty;
 }
 
 .offer-hero-copy {
@@ -1801,6 +1811,10 @@ h4 {
   .layer-card.custom-layer ul {
     grid-template-columns: 1fr;
   }
+
+  .offer-hero-grid h1 {
+    max-width: 10ch;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1901,6 +1915,11 @@ h4 {
   h1 {
     font-size: clamp(2.55rem, 10.8vw, 4.75rem);
     line-height: 0.98;
+  }
+
+  .offer-hero-grid h1 {
+    max-width: 9ch;
+    font-size: clamp(2.45rem, 9.5vw, 4.25rem);
   }
 
   h2,
@@ -2139,7 +2158,8 @@ h4 {
   }
 
   .offer-hero-grid h1 {
-    max-width: 13ch;
+    max-width: 10ch;
+    font-size: clamp(1.95rem, 10vw, 2.9rem);
     text-wrap: pretty;
   }
 
