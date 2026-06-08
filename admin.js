@@ -189,6 +189,10 @@ function renderBriefs() {
               <p>${escapeHtml(brief.preferred_layer)} · ${escapeHtml(brief.support_type)}</p>
             </div>
             <div>
+              <h4>Reference</h4>
+              <p>${escapeHtml(brief.id ? brief.id.slice(0, 8).toUpperCase() : "N/A")}</p>
+            </div>
+            <div>
               <h4>Budget / Timing</h4>
               <p>${escapeHtml(brief.budget_range)} · ${escapeHtml(brief.live_date || brief.deadline || "No date")}${brief.duration ? ` · ${escapeHtml(brief.duration)}` : ""}</p>
             </div>

@@ -49,7 +49,8 @@ const briefForm = document.querySelector("[data-brief-form]");
 if (briefForm instanceof HTMLFormElement) {
   const statusElement = briefForm.querySelector("[data-form-status]");
   const successElement = document.querySelector("[data-brief-success]");
-  const referenceElement = document.querySelector("[data-brief-reference]");
+  const referenceElement = document.querySelector("[data-brief-reference-text]");
+  const copyReferenceButton = document.querySelector("[data-copy-reference]");
   const submitAnotherButton = document.querySelector("[data-submit-another]");
 
   submitAnotherButton?.addEventListener("click", () => {
@@ -57,6 +58,15 @@ if (briefForm instanceof HTMLFormElement) {
 
     if (successElement instanceof HTMLElement) {
       successElement.hidden = true;
+    }
+
+    if (referenceElement instanceof HTMLElement) {
+      referenceElement.textContent = "";
+    }
+
+    if (copyReferenceButton instanceof HTMLButtonElement) {
+      copyReferenceButton.disabled = true;
+      copyReferenceButton.textContent = "Copy reference";
     }
 
     if (statusElement) {
@@ -109,7 +119,13 @@ if (briefForm instanceof HTMLFormElement) {
       }
 
       if (referenceElement && typeof result.id === "string") {
-        referenceElement.textContent = `Reference: ${result.id.slice(0, 8).toUpperCase()}`;
+        const referenceCode = `Reference: ${result.id.slice(0, 8).toUpperCase()}`;
+        referenceElement.textContent = referenceCode;
+
+        if (copyReferenceButton instanceof HTMLButtonElement) {
+          copyReferenceButton.disabled = false;
+          copyReferenceButton.textContent = "Copy reference";
+        }
       }
 
       if (successElement instanceof HTMLElement) {
@@ -126,6 +142,31 @@ if (briefForm instanceof HTMLFormElement) {
         submitButton.disabled = false;
         submitButton.textContent = "Submit Gravity Brief";
       }
+    }
+  });
+
+  copyReferenceButton?.addEventListener("click", async () => {
+    if (!(copyReferenceButton instanceof HTMLButtonElement) || !referenceElement) {
+      return;
+    }
+
+    const text = referenceElement.textContent?.trim();
+
+    if (!text) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(text);
+      copyReferenceButton.textContent = "Copied";
+      setTimeout(() => {
+        copyReferenceButton.textContent = "Copy reference";
+      }, 1200);
+    } catch {
+      copyReferenceButton.textContent = "Copy failed";
+      setTimeout(() => {
+        copyReferenceButton.textContent = "Copy reference";
+      }, 1200);
     }
   });
 }
