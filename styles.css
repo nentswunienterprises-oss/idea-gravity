@@ -1055,6 +1055,50 @@ h4 {
   border-color: rgba(255, 110, 90, 0.7);
 }
 
+.brief-success {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 18px;
+  min-height: 520px;
+  padding: clamp(28px, 4vw, 52px);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(214, 154, 45, 0.16), transparent 14rem),
+    rgba(0, 0, 0, 0.24);
+  box-shadow: 0 22px 70px rgba(214, 154, 45, 0.08);
+}
+
+.brief-success[hidden] {
+  display: none;
+}
+
+.brief-success h3 {
+  max-width: 620px;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4.6vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-transform: none;
+}
+
+.brief-success p:not(.eyebrow) {
+  max-width: 620px;
+  color: rgba(246, 241, 232, 0.72);
+  font-size: clamp(1rem, 1.35vw, 1.28rem);
+}
+
+.brief-reference {
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--gold-bright) !important;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
 .pathway-plate {
   margin-top: clamp(18px, 3vw, 42px);
   padding: clamp(52px, 5vw, 92px) clamp(50px, 6vw, 110px);

@@ -48,6 +48,24 @@ const briefForm = document.querySelector("[data-brief-form]");
 
 if (briefForm instanceof HTMLFormElement) {
   const statusElement = briefForm.querySelector("[data-form-status]");
+  const successElement = document.querySelector("[data-brief-success]");
+  const referenceElement = document.querySelector("[data-brief-reference]");
+  const submitAnotherButton = document.querySelector("[data-submit-another]");
+
+  submitAnotherButton?.addEventListener("click", () => {
+    briefForm.hidden = false;
+
+    if (successElement instanceof HTMLElement) {
+      successElement.hidden = true;
+    }
+
+    if (statusElement) {
+      statusElement.textContent = "";
+      statusElement.className = "form-status";
+    }
+
+    briefForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
   briefForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -83,10 +101,20 @@ if (briefForm instanceof HTMLFormElement) {
       }
 
       briefForm.reset();
+      briefForm.hidden = true;
 
       if (statusElement) {
         statusElement.textContent = "Brief received. We will review the gravity and respond with the next step.";
         statusElement.className = "form-status is-visible is-success";
+      }
+
+      if (referenceElement && typeof result.id === "string") {
+        referenceElement.textContent = `Reference: ${result.id.slice(0, 8).toUpperCase()}`;
+      }
+
+      if (successElement instanceof HTMLElement) {
+        successElement.hidden = false;
+        successElement.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     } catch (error) {
       if (statusElement) {
