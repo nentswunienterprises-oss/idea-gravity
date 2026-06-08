@@ -1448,6 +1448,18 @@ h4 {
   letter-spacing: -0.055em;
 }
 
+.legal-footer {
+  width: min(1440px, calc(100% - clamp(0px, 2vw, 28px)));
+  margin: 0 auto;
+  padding: 28px 0 8px;
+  color: rgba(246, 241, 232, 0.48);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .admin-nav button {
   border: 0;
   color: rgba(246, 241, 232, 0.72);

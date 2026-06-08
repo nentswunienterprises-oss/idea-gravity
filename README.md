@@ -1,6 +1,6 @@
 # Idea Gravity Public Website
 
-A static public website for Idea Gravity, built from `MANIFESTO.md`, `THE IDEA GRAVITY CONSTITUTION.md`, and the brand-system visual direction.
+A static public website for Idea Gravity, a division of Nenterprises (Pty) Ltd, built from `MANIFESTO.md`, `THE IDEA GRAVITY CONSTITUTION.md`, and the brand-system visual direction.
 
 ## Files
 
