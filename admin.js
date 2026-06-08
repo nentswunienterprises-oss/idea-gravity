@@ -189,10 +189,6 @@ function renderBriefs() {
               <p>${escapeHtml(brief.preferred_layer)} · ${escapeHtml(brief.support_type)}</p>
             </div>
             <div>
-              <h4>Reference</h4>
-              <p>${escapeHtml(brief.id ? brief.id.slice(0, 8).toUpperCase() : "N/A")}</p>
-            </div>
-            <div>
               <h4>Budget / Timing</h4>
               <p>${escapeHtml(brief.budget_range)} · ${escapeHtml(brief.live_date || brief.deadline || "No date")}${brief.duration ? ` · ${escapeHtml(brief.duration)}` : ""}</p>
             </div>
@@ -212,6 +208,7 @@ function renderBriefs() {
                   .join("")}
               </select>
             </label>
+            <button class="admin-button" type="button" data-copy-reference>Copy reference</button>
             <button class="admin-button" type="button" data-copy-contact>Copy contact</button>
           </div>
         </article>
@@ -310,7 +307,7 @@ briefList?.addEventListener("change", async (event) => {
 briefList?.addEventListener("click", async (event) => {
   const target = event.target;
 
-  if (!(target instanceof HTMLButtonElement) || !target.matches("[data-copy-contact]")) {
+  if (!(target instanceof HTMLButtonElement)) {
     return;
   }
 
@@ -322,11 +319,24 @@ briefList?.addEventListener("click", async (event) => {
     return;
   }
 
-  await navigator.clipboard.writeText(`${brief.contact_name}\n${brief.email}\n${brief.phone}`);
-  target.textContent = "Copied";
-  setTimeout(() => {
-    target.textContent = "Copy contact";
-  }, 1200);
+  if (target.matches("[data-copy-contact]")) {
+    await navigator.clipboard.writeText(`${brief.contact_name}\n${brief.email}\n${brief.phone}`);
+    target.textContent = "Copied";
+    setTimeout(() => {
+      target.textContent = "Copy contact";
+    }, 1200);
+    return;
+  }
+
+  if (target.matches("[data-copy-reference]")) {
+    const referenceCode = `Reference: ${brief.id.slice(0, 8).toUpperCase()}`;
+    await navigator.clipboard.writeText(referenceCode);
+    target.textContent = "Copied";
+    setTimeout(() => {
+      target.textContent = "Copy reference";
+    }, 1200);
+    return;
+  }
 });
 
 searchInput?.addEventListener("input", renderBriefs);
