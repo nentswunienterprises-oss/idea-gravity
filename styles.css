@@ -1217,6 +1217,10 @@ h4 {
   text-transform: uppercase;
 }
 
+.pathway-map figcaption span {
+  white-space: nowrap;
+}
+
 .pathway-legend {
   display: grid;
   gap: 32px;
@@ -1945,37 +1949,49 @@ h4 {
     padding-top: 40px;
   }
 
+  .pathway-heading h2 {
+    margin-top: 34px;
+    font-size: clamp(2.35rem, 9.5vw, 4.2rem);
+  }
+
+  .pathway-heading h3 {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+
   .poster-lockup {
     align-self: end;
   }
 
   .pathway-map {
-    min-height: min(112vw, 620px);
+    width: min(100%, 420px);
+    min-height: min(112vw, 520px);
+    margin-inline: auto;
   }
 
   .pathway-rings {
     position: absolute;
-    inset: 0 auto auto 50%;
-    width: min(100%, 620px);
-    transform: translateX(-50%);
+    inset: 0;
+    width: 100%;
+    transform: none;
   }
 
   .pathway-rings b {
-    transform: rotate(var(--angle)) translateX(clamp(118px, 33vw, 210px));
+    transform: rotate(var(--angle)) translateX(clamp(124px, 38vw, 184px));
   }
 
   .pathway-rings b::after {
-    width: clamp(72px, 16vw, 138px);
+    width: clamp(54px, 15vw, 104px);
   }
 
   .pathway-map figcaption {
-    top: clamp(18px, 4vw, 34px);
+    top: clamp(14px, 3vw, 24px);
     left: 50%;
-    width: min(46vw, 260px);
+    width: min(44%, 188px);
     margin-top: 0;
-    gap: clamp(18px, 2.8vw, 28px);
-    transform: translateX(-12%);
-    font-size: clamp(0.88rem, 2vw, 1rem);
+    gap: clamp(13px, 2.4vw, 20px);
+    transform: translateX(-50%);
+    font-size: clamp(0.78rem, 1.9vw, 0.94rem);
+    letter-spacing: 0.12em;
   }
 
   .pathway-legend article {
@@ -2042,20 +2058,30 @@ h4 {
     padding-top: 34px;
   }
 
+  .pathway-heading h2 {
+    margin-top: 26px;
+    font-size: clamp(2rem, 10.5vw, 3rem);
+  }
+
+  .pathway-heading h3 {
+    font-size: clamp(1rem, 4.8vw, 1.3rem);
+  }
+
   .pathway-map {
-    min-height: min(118vw, 520px);
+    width: min(100%, 320px);
+    min-height: min(104vw, 390px);
   }
 
   .pathway-rings {
-    width: min(100%, 420px);
+    width: 100%;
   }
 
   .pathway-rings b {
-    transform: rotate(var(--angle)) translateX(clamp(100px, 31vw, 145px));
+    transform: rotate(var(--angle)) translateX(clamp(94px, 33vw, 138px));
   }
 
   .pathway-rings b::after {
-    width: clamp(48px, 14vw, 92px);
+    width: clamp(38px, 11vw, 66px);
   }
 
   .offer-hero-grid h1 {
@@ -2087,11 +2113,11 @@ h4 {
   }
 
   .pathway-map figcaption {
-    top: 14px;
-    width: min(52vw, 190px);
-    gap: 13px;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    top: 12px;
+    width: min(46%, 140px);
+    gap: 10px;
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
   }
 }
 
