@@ -7,7 +7,6 @@ const requiredFields = [
   "audience",
   "support_type",
   "preferred_layer",
-  "budget_range",
   "live_date",
 ];
 
@@ -59,7 +58,7 @@ export default async function handler(request, response) {
     live_date: liveDate,
     duration: normalizeText(body.duration),
     existing_materials: normalizeText(body.existing_materials),
-    budget_range: normalizeText(body.budget_range),
+    budget_range: "Not requested publicly",
     status: "new",
   };
 
