@@ -128,7 +128,6 @@ function matchesSearch(brief, query) {
     brief.goal,
     brief.audience,
     brief.preferred_layer,
-    brief.budget_range,
   ]
     .join(" ")
     .toLowerCase();
@@ -189,8 +188,8 @@ function renderBriefs() {
               <p>${escapeHtml(brief.preferred_layer)} · ${escapeHtml(brief.support_type)}</p>
             </div>
             <div>
-              <h4>Budget / Timing</h4>
-              <p>${escapeHtml(brief.budget_range)} · ${escapeHtml(brief.live_date || brief.deadline || "No date")}${brief.duration ? ` · ${escapeHtml(brief.duration)}` : ""}</p>
+              <h4>Timing</h4>
+              <p>${escapeHtml(brief.live_date || brief.deadline || "No date")}${brief.duration ? ` · ${escapeHtml(brief.duration)}` : ""}</p>
             </div>
           </div>
 
